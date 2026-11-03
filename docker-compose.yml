@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      target: production
+    image: npv-prediction-api:1.1
+    container_name: npv-api-container
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  test:
+    build:
+      context: .
+      target: test
+    profiles:
+      - test
